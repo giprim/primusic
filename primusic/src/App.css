@@ -1,1 +1,138 @@
 @import '~antd/dist/antd.css';
+@import '~animate.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+
+:root {
+	--prim-green: #1b4f51;
+	--bgColor: white;
+}
+
+#root {
+	background: var(--bgColor);
+}
+
+.bg_trans {
+	background: transparent;
+}
+
+.ant-layout {
+	background: #ffffff;
+}
+
+.root {
+	height: 100vh;
+	background: url('./assets/svg/bg.svg') no-repeat;
+	background-position: bottom;
+	background-size: contain;
+}
+
+.gi_width_res {
+	width: 30%;
+	margin: 35px auto;
+	margin-top: 6.5%;
+}
+
+.searchBar {
+	border-radius: 45px;
+	padding: 15px 25px;
+	border: 2px rgba(17, 144, 153, 0.418) solid;
+	box-shadow: 6px 5px 15px rgba(17, 144, 153, 0.157);
+}
+
+input[type='search'] {
+	color: rgba(17, 144, 153, 0.801);
+	letter-spacing: 1px;
+	font-size: large;
+}
+
+.searchIcon {
+	font-size: 25px;
+	color: rgba(17, 144, 153, 0.459);
+}
+.searchBar::placeholder {
+	color: rgba(17, 144, 153, 0.69);
+	font-size: large;
+	letter-spacing: 2px;
+}
+
+.title {
+	margin-top: 20px;
+	font-size: 5rem;
+	font-weight: bolder;
+	color: #10bdca;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.308);
+}
+
+.icon {
+	color: var(--prim-green);
+}
+
+.line {
+	height: 15px;
+	background: white;
+	width: 90%;
+	border-radius: 20px;
+	box-shadow: 2px 5px 10px rgba(192, 192, 192, 0.137);
+}
+
+#svgNote,
+#svgPerson {
+	width: 90%;
+	height: auto;
+}
+
+.txt {
+	font-size: 18px;
+	color: #10bdca;
+	line-height: 1.5em;
+}
+
+/* BOOTSTRAP EDITS */
+.bg-dark {
+	background: transparent !important;
+}
+
+nav.navbar {
+	margin-top: 20px;
+}
+
+.container {
+	max-width: 1454px;
+}
+
+.darkLink {
+	color: var(--prim-green) !important;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 780px) {
+	.gi_width_res {
+		width: 90%;
+	}
+	.searchBar::placeholder {
+		font-size: 15px;
+	}
+
+	.searchBar {
+		border-radius: 25px;
+		padding: 10px 20px;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.root {
+		height: auto;
+		background-size: cover;
+		background-origin: border-box;
+		background-position-x: right;
+	}
+
+	.bg-dark {
+		background: white !important;
+	}
+	nav {
+		box-shadow: 2px 3xp 10px rgba(255, 255, 255, 0.308);
+	}
+}

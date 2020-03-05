@@ -1,0 +1,36 @@
+import React from 'react';
+import Person from '../assets/Person';
+import Note from '../assets/Note';
+
+const Home: React.FC = () => {
+	return (
+		<div className='container-fluid'>
+			<div className='row'>
+				<div className='col-md-3'>
+					<div className='pt-lg-5 mt-lg-5'>
+						<Person />
+					</div>
+				</div>
+				<div className='col-md-6'>
+					<h2 className='title py-2 mt-5'>Explore</h2>
+					<div className='line'></div>
+					<section className='py-2'>
+						<p className='txt'>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ab
+							atque vel assumenda, quisquam cupiditate laborum adipisci
+							voluptatum dignissimos hic voluptas saepe eveniet officia harum
+							animi neque perferendis tempora numquam!
+						</p>
+					</section>
+				</div>
+				<div className='col-md-3'>
+					<div className='bounceInDown'>
+						<Note />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default Home;
