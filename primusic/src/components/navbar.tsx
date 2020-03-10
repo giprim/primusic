@@ -5,7 +5,7 @@ import Logo from '../assets/logo';
 import { MenuOutlined } from '@ant-design/icons';
 
 const Navbar: React.FC = () => {
-	const [bgLight, setBgLight] = useState(false);
+	const [bgLight, setBgLight] = useState(true);
 
 	const themeChanger = (
 		e: React.MouseEvent<HTMLButtonElement, MouseEvent>

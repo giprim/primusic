@@ -9,27 +9,23 @@
 
 #root {
 	background: var(--bgColor);
+	height: 100vh;
 }
 
 .bg_trans {
 	background: transparent;
 }
 
-.ant-layout {
-	background: #ffffff;
-}
-
 .root {
-	height: 100vh;
+	height: 100%;
 	background: url('./assets/svg/bg.svg') no-repeat;
-	background-position: bottom;
 	background-size: contain;
+	background-position: bottom;
 }
 
 .gi_width_res {
 	width: 30%;
-	margin: 35px auto;
-	margin-top: 6.5%;
+	margin: 10px auto;
 }
 
 .searchBar {
@@ -75,10 +71,28 @@ input[type='search'] {
 	box-shadow: 2px 5px 10px rgba(192, 192, 192, 0.137);
 }
 
+.relative {
+	position: relative;
+}
+
 #svgNote,
 #svgPerson {
 	width: 90%;
 	height: auto;
+	position: absolute;
+}
+
+#svgPerson {
+	top: 80%;
+	right: 10px;
+}
+#svgNote {
+	top: 25%;
+	right: 10%;
+}
+
+.pad {
+	padding-top: 5%;
 }
 
 .txt {
@@ -89,11 +103,7 @@ input[type='search'] {
 
 /* BOOTSTRAP EDITS */
 .bg-dark {
-	background: transparent !important;
-}
-
-nav.navbar {
-	margin-top: 20px;
+	background: var(--bgColor) !important;
 }
 
 .container {
@@ -120,6 +130,13 @@ nav.navbar {
 
 	.line {
 		display: none;
+	}
+
+	#svgNote,
+	#svgPerson {
+		width: 90%;
+		height: auto;
+		position: static;
 	}
 
 	.root {
