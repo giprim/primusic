@@ -8,7 +8,7 @@ function Logo() {
 			height='28'
 			fill='none'
 			viewBox='0 0 76 18'>
-			<g fill='#1E4244'>
+			<g fill='#1E4244' id='logoSvg'>
 				<text
 					xmlSpace='preserve'
 					style={{ whiteSpace: 'pre' }}

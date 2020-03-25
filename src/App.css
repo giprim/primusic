@@ -5,6 +5,9 @@
 :root {
 	--prim-green: #1b4f51;
 	--bgColor: white;
+	--lightBgFontColor: var(--prim-green);
+	--searchBarBg: white;
+	--colorTxt: var(--prim-green);
 }
 
 #root {
@@ -31,14 +34,16 @@
 .searchBar {
 	border-radius: 45px;
 	padding: 15px 25px;
+	background: var(--searchBarBg);
 	border: 2px rgba(17, 144, 153, 0.418) solid;
 	box-shadow: 6px 5px 15px rgba(17, 144, 153, 0.157);
 }
 
 input[type='search'] {
-	color: rgba(17, 144, 153, 0.801);
+	color: var(--colorTxt);
 	letter-spacing: 1px;
 	font-size: large;
+	background: transparent;
 }
 
 .searchIcon {
@@ -59,8 +64,13 @@ input[type='search'] {
 	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.308);
 }
 
+#lightThemeToggler,
+#logoSvg {
+	fill: var(--lightBgFontColor);
+}
+
 .icon {
-	color: var(--prim-green);
+	color: var(--lightBgFontColor);
 }
 
 .line {
@@ -111,7 +121,7 @@ input[type='search'] {
 }
 
 .darkLink {
-	color: var(--prim-green) !important;
+	color: var(--lightBgFontColor) !important;
 	font-weight: bold;
 }
 
@@ -146,9 +156,6 @@ input[type='search'] {
 		background-position-x: right;
 	}
 
-	.bg-dark {
-		background: white !important;
-	}
 	nav {
 		box-shadow: 2px 3xp 10px rgba(255, 255, 255, 0.308);
 	}
