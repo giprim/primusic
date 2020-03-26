@@ -47,7 +47,10 @@ function App() {
 				<Searchbar />
 				<Switch>
 					<Route path='/' exact component={Home} />
-					<Route path='/result' component={ResultPage} />
+
+					<div className='noWallpaper'>
+						<Route path='/result' component={ResultPage} />
+					</div>
 				</Switch>
 			</div>
 		</Router>

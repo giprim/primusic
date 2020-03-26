@@ -111,6 +111,11 @@ input[type='search'] {
 	line-height: 1.5em;
 }
 
+.noWallpaper {
+	width: 100%;
+	background-color: var(--bgColor);
+}
+
 /* BOOTSTRAP EDITS */
 .bg-dark {
 	background: var(--bgColor) !important;
