@@ -12,7 +12,7 @@
 
 #root {
 	background: var(--bgColor);
-	height: 100vh;
+	height: 100%;
 }
 
 .bg_trans {

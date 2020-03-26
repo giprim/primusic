@@ -1,10 +1,13 @@
 import React from 'react';
 import Person from '../assets/Person';
 import Note from '../assets/Note';
+import Searchbar from './searchbar';
+import { RouteComponentProps } from 'react-router-dom';
 
-const Home: React.FC = () => {
+const Home: React.FC<RouteComponentProps> = ({ history }) => {
 	return (
 		<div className='relative'>
+			{/* <Searchbar history={history} /> */}
 			<div className='container-fluid'>
 				<div className='row'>
 					<div className='col-md-3'>
