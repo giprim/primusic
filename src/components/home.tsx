@@ -1,7 +1,7 @@
 import React from 'react';
 import Person from '../assets/Person';
 import Note from '../assets/Note';
-import Searchbar from './searchbar';
+import Searchbar from './searchbar/searchbar';
 import { RouteComponentProps } from 'react-router-dom';
 
 const Home: React.FC<RouteComponentProps> = ({ history }) => {
