@@ -3,20 +3,13 @@ import './App.css';
 import 'jquery/dist/jquery.slim';
 import 'bootstrap/dist/js/bootstrap';
 import 'animate.css';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	RouteComponentProps,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import ResultPage from './components/resultPage';
 import Searchbar from './components/searchbar/searchbar';
 
 const App: React.FC = (props: any) => {
-	const { history } = props;
-	console.log(props);
 	return (
 		<Router>
 			<div className='root'>

@@ -1,8 +1,6 @@
-import { makeAsearchReducer } from './makeAsearchReducer';
+import search from './searchReducer';
 import { combineReducers } from 'redux';
 
-const reducers = combineReducers({
-	search: makeAsearchReducer,
+export default combineReducers({
+	search,
 });
-
-export default reducers;
