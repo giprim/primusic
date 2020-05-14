@@ -1,70 +1,35 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory, useLocation } from 'react-router-dom';
 import ThemeBtn from '../assets/theme';
 import Logo from '../assets/logo';
 import { MenuOutlined } from '@ant-design/icons';
-
-const themeColors = {
-	backgroundCol: 'white',
-	fontCol: '#1b4f51',
-	textCol: 'white',
-	searchBarCol: 'white'
-};
+import Searchbar from './searchbar/searchbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { THEME } from '../redux/types';
+import Theme from '../themeConfig/theme';
 
 const Navbar: React.FC = () => {
-	const [bgLight, setBgLight] = useState(true);
-	const [bgColor, setBgColor] = useState(themeColors.backgroundCol);
-	const [fontCol, setFontCol] = useState(themeColors.fontCol);
-	const [textCol, setTextCol] = useState(themeColors.textCol);
-	const [searchCol, setSearchCol] = useState(themeColors.searchBarCol);
+	const location = useLocation();
+	const dispatch = useDispatch();
+	const isDark: boolean = useSelector((state: any) => state.theme);
 
-	// localstorage
-	localStorage.setItem('bgcolor', bgColor);
-	localStorage.setItem('fontcol', fontCol);
-	localStorage.setItem('textcol', textCol);
-	localStorage.setItem('searchcol', searchCol);
+	const themeToggler = (
+		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	) => {
+		event.preventDefault();
 
-	localStorage.setItem('bgColor', '');
-	const themeChanger = (
-		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-	): void => {
-		if (bgLight) {
-			setBgColor('#212121');
-			setFontCol('#10bdca');
-			setTextCol('#efefef');
-			setSearchCol('rgba(48,69,99,0.5)');
+		dispatch({
+			type: THEME,
+			payload: !isDark,
+		});
 
-			setBgLight(prev => !prev);
-		} else {
-			setBgColor(themeColors.backgroundCol);
-			setFontCol(themeColors.fontCol);
-			setTextCol(themeColors.textCol);
-			setSearchCol(themeColors.searchBarCol);
-
-			setBgLight(prev => !prev);
-		}
+		// Theme(false);
 	};
-	document.documentElement.style.setProperty(
-		'--lightBgFontColor',
-		localStorage.getItem('fontcol')
-	);
-	document.documentElement.style.setProperty(
-		'--searchBarBg',
-		localStorage.getItem('searchcol')
-	);
-	document.documentElement.style.setProperty(
-		'--bgColor',
-		localStorage.getItem('bgcolor')
-	);
-	document.documentElement.style.setProperty(
-		'--colorTxt',
-		localStorage.getItem('textcol')
-	);
 
 	return (
 		<nav className='navbar navbar-expand-md bg-dark navbar-dark sticky-top'>
 			<div className='container'>
-				<Link to='/' className='navbar-brand' href='#'>
+				<Link to='/' className='navbar-brand mr-3' href='#'>
 					<Logo />
 				</Link>
 
@@ -75,11 +40,11 @@ const Navbar: React.FC = () => {
 					data-target='#collapsibleNavbar'>
 					<MenuOutlined className='icon' />
 				</button>
-
+				{location.pathname !== '/' && <Searchbar />}
 				<div className='collapse navbar-collapse' id='collapsibleNavbar'>
 					<ul className='navbar-nav ml-auto'>
 						<button
-							onClick={themeChanger}
+							onClick={themeToggler}
 							style={{ background: 'transparent', border: 'none' }}>
 							<ThemeBtn />
 						</button>

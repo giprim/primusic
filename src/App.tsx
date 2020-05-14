@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import 'jquery/dist/jquery.slim';
 import 'bootstrap/dist/js/bootstrap';
@@ -7,14 +7,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import ResultPage from './components/resultPage';
-import Searchbar from './components/searchbar/searchbar';
+import { useSelector } from 'react-redux';
+import Theme from './themeConfig/theme';
 
-const App: React.FC = (props: any) => {
+const App: React.FC = () => {
 	return (
 		<Router>
 			<div className='root'>
 				<Navbar />
-				<Searchbar />
 				<Switch>
 					<Route path='/' exact component={Home} />
 					<div className='noWallpaper'>

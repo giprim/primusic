@@ -8,7 +8,7 @@ const ResultPage = () => {
 		const { track } = tracks;
 		return (
 			<div key={track.id} className='col-lg-3 p-3'>
-				<div className='bg-light p-3'>
+				<div className='bg-light p-3 gi-shadow'>
 					<img
 						src={track.album.cover_big}
 						className='img-fluid'
@@ -26,18 +26,27 @@ const ResultPage = () => {
 	for (let i = 0; i < search_result.data.length; i++) {
 		array.push(search_result.data[i]);
 	}
-	console.log(search_result);
 	const handleNextFetch = () => {
 		console.log(search_result.next);
 	};
 
 	return (
 		<div className='container'>
-			<div className='row'>
-				{array &&
-					array.map((track) => <PerResult key={track.id} track={track} />)}
-			</div>
-			<button onClick={handleNextFetch}>next</button>
+			{array.length ? (
+				<>
+					<div className='row'>
+						{array &&
+							array.map((track) => <PerResult key={track.id} track={track} />)}
+					</div>
+					<button onClick={handleNextFetch}>next</button>
+				</>
+			) : (
+				<div className='d-flex'>
+					<div className='spinner-border mx-auto mt-5' role='status'>
+						<span className='sr-only'>Loading...</span>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };

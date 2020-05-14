@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import searchFor from '../../redux/actions/searchFor';
 import Search from 'antd/lib/input/Search';
+import { useHistory } from 'react-router-dom';
 
 const Searchbar: React.FC = () => {
+	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const handlerSearch = (
@@ -14,7 +16,9 @@ const Searchbar: React.FC = () => {
 			| React.KeyboardEvent<HTMLInputElement>
 			| undefined
 	) => {
+		event?.preventDefault();
 		if (text !== '') dispatch(searchFor(text));
+		history.push('/result');
 	};
 
 	return (

@@ -4,7 +4,6 @@ import { MAKE_A_SEARCH, RESULT_FOUND } from '../types';
 
 export default (text: string) => {
 	return (dispatch: Dispatch) => {
-		// history.pushState(null, null, '/result')
 		axios({
 			method: 'GET',
 			url: 'https://deezerdevs-deezer.p.rapidapi.com/search',
