@@ -4,14 +4,14 @@
 
 :root {
 	--prim-green: #1b4f51;
-	--bgColor: white;
+	--backgroundColor: white;
 	--lightBgFontColor: var(--prim-green);
-	--searchBarBg: white;
-	--colorTxt: var(--prim-green);
+	--searchBarColor: white;
+	--textColor: var(--prim-green);
 }
 
 #root {
-	background: var(--bgColor);
+	background: var(--backgroundColor);
 	height: 100%;
 }
 
@@ -34,13 +34,13 @@
 .searchBar {
 	border-radius: 45px;
 	padding: 15px 25px;
-	background: var(--searchBarBg);
+	background: var(--searchBarColor);
 	border: 2px rgba(17, 144, 153, 0.418) solid;
 	box-shadow: 6px 5px 15px rgba(17, 144, 153, 0.157);
 }
 
 input[type='search'] {
-	color: var(--colorTxt);
+	color: var(--textColor);
 	letter-spacing: 1px;
 	font-size: large;
 	background: transparent;
@@ -113,12 +113,12 @@ input[type='search'] {
 
 .noWallpaper {
 	width: 100%;
-	background-color: var(--bgColor);
+	background-color: var(--backgroundColor);
 }
 
 /* BOOTSTRAP EDITS */
 .bg-dark {
-	background: var(--bgColor) !important;
+	background: var(--backgroundColor) !important;
 }
 
 .container {

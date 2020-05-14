@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import 'jquery/dist/jquery.slim';
 import 'bootstrap/dist/js/bootstrap';
@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import ResultPage from './components/resultPage';
-import { useSelector } from 'react-redux';
-import Theme from './themeConfig/theme';
 
 const App: React.FC = () => {
 	return (

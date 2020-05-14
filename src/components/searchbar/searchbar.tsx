@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import searchFor from '../../redux/actions/searchFor';
 import Search from 'antd/lib/input/Search';
 import { useHistory } from 'react-router-dom';

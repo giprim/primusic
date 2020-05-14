@@ -9,3 +9,11 @@ export interface IArtist {
 export interface IActions extends Action {
 	payload: any;
 }
+
+export interface IThemeConfig {
+	backgroundColor: string;
+	textColor: string;
+	titleColor: string;
+	searchBarColor: string;
+	shadowColor: string;
+}

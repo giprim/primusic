@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { NavLink, Link, useHistory, useLocation } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import ThemeBtn from '../assets/theme';
 import Logo from '../assets/logo';
 import { MenuOutlined } from '@ant-design/icons';
 import Searchbar from './searchbar/searchbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { THEME } from '../redux/types';
-import Theme from '../themeConfig/theme';
+import { darkThemeConfig, lightThemeConfig } from '../themeConfig/themeConfig';
+import setTheme from '../themeConfig/setTheme';
 
 const Navbar: React.FC = () => {
 	const location = useLocation();
@@ -23,7 +24,7 @@ const Navbar: React.FC = () => {
 			payload: !isDark,
 		});
 
-		// Theme(false);
+		isDark ? setTheme(darkThemeConfig) : setTheme(lightThemeConfig);
 	};
 
 	return (
