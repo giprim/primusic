@@ -8,7 +8,7 @@ const ResultPage = () => {
 		const { track } = tracks;
 		return (
 			<div key={track.id} className='col-lg-3 p-3'>
-				<div className='bg-light p-3 gi-shadow'>
+				<div className='p-3 gi-box'>
 					<img
 						src={track.album.cover_big}
 						className='img-fluid'

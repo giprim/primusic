@@ -9,6 +9,7 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
 		<div className='relative'>
 			{/* <Searchbar history={history} /> */}
 			<Searchbar />
+
 			<div className='container-fluid'>
 				<div className='row'>
 					<div className='col-md-3'>

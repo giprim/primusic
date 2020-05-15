@@ -5,14 +5,20 @@
 :root {
 	--prim-green: #1b4f51;
 	--backgroundColor: white;
-	--lightBgFontColor: var(--prim-green);
+	--titleColor: var(--prim-green);
 	--searchBarColor: white;
 	--textColor: var(--prim-green);
+	--border: 2px rgba(17, 144, 153, 0.418) solid;
+	--shadowBox: rgba(188, 188, 188, 0.503);
 }
 
 #root {
 	background: var(--backgroundColor);
 	height: 100%;
+}
+
+* {
+	transition: 0.7s ease-in-out;
 }
 
 .bg_trans {
@@ -35,11 +41,12 @@
 	border-radius: 45px;
 	padding: 15px 25px;
 	background: var(--searchBarColor);
-	border: 2px rgba(17, 144, 153, 0.418) solid;
+	border: var(--border);
 	box-shadow: 6px 5px 15px rgba(17, 144, 153, 0.157);
 }
 
-input[type='search'] {
+input[type='search'],
+.ant-input {
 	color: var(--textColor);
 	letter-spacing: 1px;
 	font-size: large;
@@ -66,11 +73,11 @@ input[type='search'] {
 
 #lightThemeToggler,
 #logoSvg {
-	fill: var(--lightBgFontColor);
+	fill: var(--titleColor);
 }
 
 .icon {
-	color: var(--lightBgFontColor);
+	color: var(--titleColor);
 }
 
 .line {
@@ -116,6 +123,26 @@ input[type='search'] {
 	background-color: var(--backgroundColor);
 }
 
+.gi-box {
+	border-radius: 10px;
+	background: var(--searchBarColor);
+	color: var(--textColor);
+	box-shadow: 2px 5px 20px var(--shadowBox);
+}
+
+.gi-box h4.h3 {
+	font-size: 1.4rem;
+	padding-top: 1rem;
+}
+.gi-box h6.h6 {
+	font-size: 0.9rem;
+}
+
+.gi-box h4.h3,
+.gi-box h6.h6 {
+	color: var(--textColor) !important;
+}
+
 /* BOOTSTRAP EDITS */
 .bg-dark {
 	background: var(--backgroundColor) !important;
@@ -126,7 +153,7 @@ input[type='search'] {
 }
 
 .darkLink {
-	color: var(--lightBgFontColor) !important;
+	color: var(--titleColor) !important;
 	font-weight: bold;
 }
 

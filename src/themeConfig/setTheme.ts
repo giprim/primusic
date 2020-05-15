@@ -1,11 +1,17 @@
 import { IThemeConfig } from '../interfaces';
 
 export default (config: IThemeConfig) => {
+	console.log(config);
+
+	//! Local Storage Settings
 	localStorage.setItem('backgroundColor', config.backgroundColor);
 	localStorage.setItem('titleColor', config.titleColor);
 	localStorage.setItem('textColor', config.textColor);
 	localStorage.setItem('searchBarColor', config.searchBarColor);
+	localStorage.setItem('border', config.border);
+	localStorage.setItem('shadowBox', config.shadowBox);
 
+	//! CSS Property Settings
 	document.documentElement.style.setProperty(
 		'--titleColor',
 		localStorage.getItem('titleColor')
@@ -21,5 +27,13 @@ export default (config: IThemeConfig) => {
 	document.documentElement.style.setProperty(
 		'--textColor',
 		localStorage.getItem('textColor')
+	);
+	document.documentElement.style.setProperty(
+		'--border',
+		localStorage.getItem('border')
+	);
+	document.documentElement.style.setProperty(
+		'--shadowBox',
+		localStorage.getItem('shadowBox')
 	);
 };

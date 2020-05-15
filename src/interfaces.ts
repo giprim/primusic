@@ -15,5 +15,6 @@ export interface IThemeConfig {
 	textColor: string;
 	titleColor: string;
 	searchBarColor: string;
-	shadowColor: string;
+	shadowBox: string;
+	border: string;
 }
