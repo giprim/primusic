@@ -1,8 +1,6 @@
 import { IThemeConfig } from '../interfaces';
 
 export default (config: IThemeConfig) => {
-	console.log(config);
-
 	//! Local Storage Settings
 	localStorage.setItem('backgroundColor', config.backgroundColor);
 	localStorage.setItem('titleColor', config.titleColor);

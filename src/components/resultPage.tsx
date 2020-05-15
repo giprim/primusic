@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { truncateText } from '../Functionalities/functionalities';
 
 const ResultPage = () => {
 	const search_result = useSelector((state: any) => state.search);
@@ -14,7 +16,7 @@ const ResultPage = () => {
 						className='img-fluid'
 						alt={track.album.title}
 					/>
-					<h4 className='h3 text-center'>{track.title}</h4>
+					<h4 className='h3 text-center'>{truncateText(track.title)}</h4>
 					<h6 className='text-center h6'>{track.artist.name}</h6>
 				</div>
 			</div>
