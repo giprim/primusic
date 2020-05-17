@@ -26,7 +26,10 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<nav className='navbar navbar-expand-md bg-dark navbar-dark sticky-top'>
+		<nav
+			className={`navbar navbar-expand-md bg-dark navbar-dark ${
+				location.pathname !== '/' ? 'fixed-top shadow-sm' : 'sticky-top'
+			}`}>
 			<div className='container'>
 				<Link to='/' className='navbar-brand mr-3' href='#'>
 					<Logo />
