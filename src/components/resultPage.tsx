@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { truncateText } from '../Functionalities/functionalities';
+import fetchNext from '../redux/actions/fetchNext';
 
 const ResultPage = () => {
 	const search_result = useSelector((state: any) => state.search);
+	const dispatch = useDispatch();
 
 	const PerResult = (tracks: any) => {
 		const { track } = tracks;
@@ -23,24 +25,35 @@ const ResultPage = () => {
 		);
 	};
 
-	const array: any[] = [];
-
-	for (let i = 0; i < search_result.data.length; i++) {
-		array.push(search_result.data[i]);
-	}
-	const handleNextFetch = () => {
-		console.log(search_result.next);
+	const handleNextFetch = (url: string) => {
+		dispatch(fetchNext(url));
 	};
 
 	return (
 		<div className='container'>
-			{array.length ? (
+			{search_result.data.length ? (
 				<>
 					<div className='row'>
-						{array &&
-							array.map((track) => <PerResult key={track.id} track={track} />)}
+						{search_result.data &&
+							search_result.data.map((track: any) => (
+								<PerResult key={track.id} track={track} />
+							))}
 					</div>
-					<button onClick={handleNextFetch}>next</button>
+					{search_result.prev !== '' && (
+						<button
+							className='btn'
+							onClick={() => handleNextFetch(search_result.prev)}>
+							previous
+						</button>
+					)}
+
+					{search_result.next !== '' && (
+						<button
+							className='btn'
+							onClick={() => handleNextFetch(search_result.next)}>
+							next
+						</button>
+					)}
 				</>
 			) : (
 				<div className='d-flex'>

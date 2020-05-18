@@ -1,8 +1,9 @@
 import { Action } from 'redux';
 
 export interface IArtist {
-	data: {};
+	data: [];
 	next: string;
+	prev: string;
 	total: number;
 }
 
