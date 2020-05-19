@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { truncateText } from '../Functionalities/functionalities';
 import fetchNext from '../redux/actions/fetchNext';
+import { PlayCircleFilled } from '@ant-design/icons';
 
 const ResultPage = () => {
 	const search_result = useSelector((state: any) => state.search);
@@ -11,6 +11,7 @@ const ResultPage = () => {
 	const PerResult = (tracks: any) => {
 		const { track } = tracks;
 		return (
+			// <Link to={`/result/${track.id}`}
 			<div key={track.id} className='col-lg-3 p-3'>
 				<div className='p-3 gi-box'>
 					<img
@@ -20,6 +21,11 @@ const ResultPage = () => {
 					/>
 					<h4 className='h3 text-center'>{truncateText(track.title)}</h4>
 					<h6 className='text-center h6'>{track.artist.name}</h6>
+					<div className='d-flex'>
+						<audio controls className='gi-audio' src={track.preview}>
+							<PlayCircleFilled />
+						</audio>
+					</div>
 				</div>
 			</div>
 		);
@@ -30,7 +36,7 @@ const ResultPage = () => {
 	};
 
 	return (
-		<div className='container'>
+		<div className='container mt-5 pt-5'>
 			{search_result.data.length ? (
 				<>
 					<div className='row'>

@@ -42,7 +42,9 @@ const Navbar: React.FC = () => {
 					data-target='#collapsibleNavbar'>
 					<MenuOutlined className='icon' />
 				</button>
-				{location.pathname !== '/' && <Searchbar />}
+				{location.pathname !== '/' && (
+					<Searchbar css={{ padding: '5px 25px' }} />
+				)}
 				<div className='collapse navbar-collapse' id='collapsibleNavbar'>
 					<ul className='navbar-nav ml-auto'>
 						<button

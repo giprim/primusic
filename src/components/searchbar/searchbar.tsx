@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { useDispatch } from 'react-redux';
 import searchFor from '../../redux/actions/searchFor';
 import Search from 'antd/lib/input/Search';
 import { useHistory } from 'react-router-dom';
 
-const Searchbar: React.FC = () => {
+interface cssStyle {
+	css?: CSSProperties;
+}
+
+const Searchbar: React.FC<cssStyle> = ({ css }) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -24,6 +28,7 @@ const Searchbar: React.FC = () => {
 	return (
 		<div className='gi_width_res'>
 			<Search
+				style={css}
 				allowClear
 				placeholder='Search...'
 				className='searchBar'

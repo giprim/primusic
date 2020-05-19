@@ -18,7 +18,7 @@
 }
 
 * {
-	transition: 0.7s ease-in-out;
+	transition: 0.5s ease-in-out;
 }
 
 .bg_trans {
@@ -141,6 +141,18 @@ input[type='search'],
 .gi-box h4.h3,
 .gi-box h6.h6 {
 	color: var(--textColor) !important;
+}
+
+.gi-audio {
+	margin: auto;
+	text-align: center;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	background: var(--searchBarColor);
+	border: none;
+	font-size: 1.2em;
+	color: var(--textColor);
 }
 
 /* BOOTSTRAP EDITS */
