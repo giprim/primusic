@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Summary", {
+  enumerable: true,
+  get: function get() {
+    return _Footer.FooterComponents;
+  }
+});
 Object.defineProperty(exports, "Column", {
   enumerable: true,
   get: function get() {
@@ -24,6 +30,8 @@ Object.defineProperty(exports, "INTERNAL_COL_DEFINE", {
 exports.default = void 0;
 
 var _Table = _interopRequireDefault(require("./Table"));
+
+var _Footer = require("./Footer");
 
 var _Column = _interopRequireDefault(require("./sugar/Column"));
 
