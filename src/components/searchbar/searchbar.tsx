@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import searchFor from '../../redux/actions/searchFor';
 import Search from 'antd/lib/input/Search';
@@ -12,6 +12,7 @@ const Searchbar: React.FC<cssStyle> = ({ css }) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
+	useEffect(() => {}, []);
 	const handlerSearch = (
 		text: string,
 		event?:
