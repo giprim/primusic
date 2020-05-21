@@ -52,12 +52,12 @@ const Navbar: React.FC = () => {
 							style={{ background: 'transparent', border: 'none' }}>
 							<ThemeBtn />
 						</button>
-						<NavLink to='/' className='nav-item nav-link darkLink'>
+						{/* <NavLink to='/' className='nav-item nav-link darkLink'>
 							Blog
 						</NavLink>
 						<NavLink to='/' className='nav-item nav-link darkLink'>
 							About
-						</NavLink>
+						</NavLink> */}
 					</ul>
 				</div>
 			</div>
