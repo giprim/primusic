@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeBtn from '../assets/theme';
 import Logo from '../assets/logo';
 import { MenuOutlined } from '@ant-design/icons';
