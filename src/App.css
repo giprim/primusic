@@ -17,6 +17,10 @@
 	height: 100%;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 * {
 	transition: 0.5s ease-in-out;
 }
@@ -200,6 +204,38 @@ h6.h6 {
 .flex_container {
 	display: flex;
 	justify-content: space-between;
+}
+
+.hide_ {
+	visibility: hidden;
+}
+.show_ {
+	visibility: visible;
+}
+
+.p_fixed {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	box-shadow: 3px 3px 13px var(--shadowBox);
+	padding: 10px 15px !important;
+	border: none !important;
+	border-radius: 10rem !important;
+	background: var(--searchBarColor) !important;
+	color: var(--textColor) !important;
+}
+
+.btn_ {
+	border: 1px var(--titleColor) solid;
+	color: var(--titleColor);
+	background: transparent;
+	border-radius: 5px;
+	padding: 5px 20px;
+}
+
+.track_count {
+	color: var(--titleColor);
+	font-size: 1.2em;
 }
 
 /* BOOTSTRAP EDITS */

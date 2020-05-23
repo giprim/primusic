@@ -6,6 +6,7 @@ import {
 	PlayCircleFilled,
 	UnorderedListOutlined,
 	AppstoreOutlined,
+	ArrowUpOutlined,
 } from '@ant-design/icons';
 
 const pages: string[] = [];
@@ -15,6 +16,7 @@ const ResultPage = () => {
 	const dispatch = useDispatch();
 	const [toggleList, setToggleList] = useState(true);
 	const [pagination, setPagination] = useState(pages);
+	const [tracks, setTracks] = useState(25);
 
 	const PerResult = (tracks: any) => {
 		const { track } = tracks;
@@ -49,6 +51,7 @@ const ResultPage = () => {
 			setPagination([...pagination, search_result.next]);
 		}
 		dispatch(fetchNext(search_result.next));
+		setTracks((prev) => prev + search_result.data.length);
 	};
 
 	const changeListOrder = () => {
@@ -58,7 +61,7 @@ const ResultPage = () => {
 	console.log(pagination);
 
 	return (
-		<div className='container mt-5 pt-5'>
+		<div className='container mt-5 py-5' id='top'>
 			<div className='py-4'>
 				{search_result.data.length !== 0 && (
 					<button className='gi-btn' onClick={changeListOrder}>
@@ -74,20 +77,23 @@ const ResultPage = () => {
 								<PerResult key={track.id} track={track} />
 							))}
 					</div>
-					<div className='flex_container'>
-						{search_result.prev && (
-							<button
-								className='btn'
-								onClick={() => dispatch(fetchNext(search_result.prev))}>
-								previous
-							</button>
-						)}
+					<div className='flex_container py-5'>
+						<button
+							className={`btn_ ${search_result.prev ? 'show_' : 'hide_'}`}
+							onClick={() => {
+								dispatch(fetchNext(search_result.prev));
+								setTracks((prev) => prev - search_result.data.length);
+							}}>
+							previous
+						</button>
 
-						{search_result.next && (
-							<button className='btn' onClick={handleNextFetch}>
-								next
-							</button>
-						)}
+						<span className='track_count'>{`${tracks} of ${search_result.total}`}</span>
+
+						<button
+							className={`btn_ ${search_result.next ? 'show_' : 'hide_'}`}
+							onClick={handleNextFetch}>
+							next
+						</button>
 					</div>
 				</>
 			) : (
@@ -97,6 +103,13 @@ const ResultPage = () => {
 					</div>
 				</div>
 			)}
+			<a
+				href='#top'
+				className={`btn_ p_fixed ${
+					search_result.data.length !== 0 ? 'show_' : 'hide_'
+				}`}>
+				<ArrowUpOutlined />
+			</a>
 		</div>
 	);
 };
