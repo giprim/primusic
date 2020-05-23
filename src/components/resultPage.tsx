@@ -58,8 +58,6 @@ const ResultPage = () => {
 		setToggleList((prev) => !prev);
 	};
 
-	console.log(pagination);
-
 	return (
 		<div className='container mt-5 py-5' id='top'>
 			<div className='py-4'>

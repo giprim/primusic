@@ -18,7 +18,6 @@ export default (state = initialState, action: IActions) => {
 				total: action.payload.total,
 			};
 		case FETCH_NEXT:
-			console.log('Reducer: ', action.payload);
 			return {
 				...state,
 				data: [...action.payload.data],
