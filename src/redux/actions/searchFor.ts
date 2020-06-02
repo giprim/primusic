@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import axios from 'axios';
 import { MAKE_A_SEARCH, RESULT_FOUND } from '../types';
 
-export default (text: string) => {
+export default (query: string) => {
 	return (dispatch: Dispatch) => {
 		axios({
 			method: 'GET',
@@ -14,13 +14,14 @@ export default (text: string) => {
 				useQueryString: true,
 			},
 			params: {
-				q: text,
+				q: query,
 			},
 		})
 			.then((res) =>
 				dispatch({
 					type: MAKE_A_SEARCH,
 					payload: res.data,
+					query,
 				})
 			)
 			.catch((err) =>

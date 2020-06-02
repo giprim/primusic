@@ -2,6 +2,7 @@ import { MAKE_A_SEARCH, FETCH_NEXT } from '../types';
 import { IArtist, IActions } from '../../interfaces';
 
 const initialState: IArtist = {
+	query: '',
 	data: [],
 	next: '',
 	prev: '',
@@ -16,6 +17,7 @@ export default (state = initialState, action: IActions) => {
 				data: [...action.payload.data],
 				next: action.payload.next,
 				total: action.payload.total,
+				query: action.query,
 			};
 		case FETCH_NEXT:
 			return {
