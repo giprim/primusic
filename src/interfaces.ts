@@ -6,11 +6,13 @@ export interface IArtist {
 	prev: string;
 	total: number;
 	query: string;
+	loaded: boolean;
 }
 
 export interface IActions extends Action {
 	payload: any;
 	query?: string;
+	loaded: boolean;
 }
 
 export interface IThemeConfig {
@@ -20,4 +22,8 @@ export interface IThemeConfig {
 	searchBarColor: string;
 	shadowBox: string;
 	border: string;
+}
+
+export interface ILoadState {
+	loaded: boolean;
 }

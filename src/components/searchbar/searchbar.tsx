@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import searchFor from '../../redux/actions/searchFor';
 import Search from 'antd/lib/input/Search';
 import { useHistory } from 'react-router-dom';
+import { LOADING } from '../../redux/types';
 
 interface cssStyle {
 	css?: CSSProperties;
@@ -18,8 +19,6 @@ const Searchbar: React.FC<cssStyle> = ({ css }) => {
 		setSearchValue(stateQuery.query);
 	}, []);
 
-	console.log(stateQuery);
-
 	const handlerSearch = (
 		text: string,
 		event?:
@@ -29,7 +28,11 @@ const Searchbar: React.FC<cssStyle> = ({ css }) => {
 			| undefined
 	) => {
 		event?.preventDefault();
-		if (text !== '') dispatch(searchFor(text));
+
+		if (text !== '') {
+			dispatch({ type: LOADING });
+			dispatch(searchFor(text));
+		}
 		history.push('/result');
 	};
 
@@ -38,6 +41,7 @@ const Searchbar: React.FC<cssStyle> = ({ css }) => {
 			<Search
 				style={css}
 				allowClear
+				// value={stateQuery ? stateQuery : searchValue}
 				value={searchValue}
 				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 					//@ts-ignore

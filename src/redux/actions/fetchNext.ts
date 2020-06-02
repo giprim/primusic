@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import Axios from 'axios';
-import { FETCH_NEXT } from '../types';
+import { FETCH_NEXT, LOADED } from '../types';
 
 const fetchNext = (url: string) => {
 	return (dispatch: Dispatch) => {
@@ -9,6 +9,7 @@ const fetchNext = (url: string) => {
 				dispatch({
 					type: FETCH_NEXT,
 					payload: res.data,
+					loaded: true,
 				});
 			})
 			.catch((err) => console.error(err));

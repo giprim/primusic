@@ -7,6 +7,7 @@ const initialState: IArtist = {
 	next: '',
 	prev: '',
 	total: 0,
+	loaded: false,
 };
 
 export default (state = initialState, action: IActions) => {
@@ -18,6 +19,7 @@ export default (state = initialState, action: IActions) => {
 				next: action.payload.next,
 				total: action.payload.total,
 				query: action.query,
+				loaded: action.loaded,
 			};
 		case FETCH_NEXT:
 			return {
@@ -26,6 +28,8 @@ export default (state = initialState, action: IActions) => {
 				next: action.payload.next,
 				prev: action.payload.prev,
 				total: action.payload.total,
+				loaded: action.loaded,
+				// query: action.query
 			};
 		default:
 			return state;

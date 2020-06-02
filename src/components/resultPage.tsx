@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { truncateText } from '../Functionalities/functionalities';
 import fetchNext from '../redux/actions/fetchNext';
@@ -8,15 +8,25 @@ import {
 	AppstoreOutlined,
 	ArrowUpOutlined,
 } from '@ant-design/icons';
+import { LOADING } from '../redux/types';
 
 const pages: string[] = [];
 
 const ResultPage = () => {
 	const search_result = useSelector((state: any) => state.search);
+	// const [loaded, setLoaded] = useState(false);
+	// const loaded = useSelector((state: any) => state.loaded);
 	const dispatch = useDispatch();
 	const [toggleList, setToggleList] = useState(true);
 	const [pagination, setPagination] = useState(pages);
 	const [tracks, setTracks] = useState(25);
+
+	// useEffect(() => {
+	// 	setLoaded(search_result.loaded);
+	// }, []);
+	// console.log(loaded);
+	let loaded = search_result.loaded;
+	console.log(search_result.loaded);
 
 	const PerResult = (tracks: any) => {
 		const { track } = tracks;
@@ -61,13 +71,13 @@ const ResultPage = () => {
 	return (
 		<div className='container mt-5 py-5' id='top'>
 			<div className='py-4'>
-				{search_result.data.length !== 0 && (
+				{loaded && (
 					<button className='gi-btn' onClick={changeListOrder}>
 						{!toggleList ? <UnorderedListOutlined /> : <AppstoreOutlined />}
 					</button>
 				)}
 			</div>
-			{search_result.data.length ? (
+			{loaded ? (
 				<>
 					<div className='row'>
 						{search_result.data &&
@@ -80,7 +90,7 @@ const ResultPage = () => {
 							className={`btn_ ${search_result.prev ? 'show_' : 'hide_'}`}
 							onClick={() => {
 								dispatch(fetchNext(search_result.prev));
-								setTracks((prev) => prev - search_result.data.length);
+								setTracks((prev) => prev - search_result.data.lenght);
 							}}>
 							previous
 						</button>
@@ -101,11 +111,7 @@ const ResultPage = () => {
 					</div>
 				</div>
 			)}
-			<a
-				href='#top'
-				className={`btn_ p_fixed ${
-					search_result.data.length !== 0 ? 'show_' : 'hide_'
-				}`}>
+			<a href='#top' className={`btn_ p_fixed ${loaded ? 'show_' : 'hide_'}`}>
 				<ArrowUpOutlined />
 			</a>
 		</div>
