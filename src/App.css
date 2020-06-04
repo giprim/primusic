@@ -238,6 +238,37 @@ h6.h6 {
 	font-size: 1.2em;
 }
 
+.skeleton-loaders {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.skeletonContainer {
+	/* max-width: 340px; */
+	margin-bottom: 30px;
+	padding: 10px;
+	border-radius: 0.8rem;
+	box-shadow: 3px 3px 13px var(--shadowBox);
+}
+
+.skeleton-wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+.skeleton-wrap * {
+	margin: 0 auto;
+}
+.skeleton-wrap span span {
+	border-radius: 1rem;
+	margin-top: 5px;
+}
+.skeleton-wrap span:first-child span {
+	margin-top: 0px;
+	border-radius: 0;
+}
+
 /* BOOTSTRAP EDITS */
 .bg-dark {
 	background: var(--backgroundColor) !important;
@@ -247,6 +278,9 @@ h6.h6 {
 	max-width: 1454px;
 }
 
+.navbar {
+	/* padding: 10px; */
+}
 .darkLink {
 	color: var(--titleColor) !important;
 	font-weight: bold;

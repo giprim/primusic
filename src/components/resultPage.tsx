@@ -9,6 +9,7 @@ import {
 	AppstoreOutlined,
 	ArrowUpOutlined,
 } from '@ant-design/icons';
+import SkeletonComp from './skeleton/skeleton';
 
 const pages: string[] = [];
 
@@ -101,11 +102,17 @@ const ResultPage = () => {
 					</div>
 				</>
 			) : (
-				<div className='d-flex'>
-					<div className='spinner-border mx-auto mt-5' role='status'>
-						<span className='sr-only'>Loading...</span>
-					</div>
+				<div className={'skeleton-loaders'}>
+					<SkeletonComp />
+					<SkeletonComp />
+					<SkeletonComp />
+					<SkeletonComp />
 				</div>
+				// <div className='d-flex'>
+				// 	<div className='spinner-border mx-auto mt-5' role='status'>
+				// 		<span className='sr-only'>Loading...</span>
+				// 	</div>
+				// </div>
 			)}
 			<a href='#top' className={`btn_ p_fixed ${loaded ? 'show_' : 'hide_'}`}>
 				<ArrowUpOutlined />
