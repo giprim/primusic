@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { truncateText } from '../Functionalities/functionalities';
 import fetchNext from '../redux/actions/fetchNext';
 import { LOADING } from '../redux/types';
 import {
-	PlayCircleFilled,
 	UnorderedListOutlined,
 	AppstoreOutlined,
 	ArrowUpOutlined,
 } from '@ant-design/icons';
 import SkeletonComp from './skeleton/skeleton';
+import PerResult from './PerResult/PerResult';
 
 const pages: string[] = [];
 
@@ -21,35 +20,6 @@ const ResultPage = () => {
 	const [tracks, setTracks] = useState(25);
 
 	let { loaded } = search_result;
-	console.log(loaded);
-
-	const PerResult = (tracks: any) => {
-		const { track } = tracks;
-		return (
-			<div
-				key={track.id}
-				className={`${toggleList ? 'col-lg-3 p-3' : 'col-lg-12 p-3'}`}>
-				<div className={`box ${toggleList ? 'gi-grid' : 'gi-list'}`}>
-					<img
-						src={track.album.cover_big}
-						className='img-fluid'
-						alt={track.album.title}
-					/>
-					<div className='flex_box'>
-						<div>
-							<h4 className='h3 text-center'>{truncateText(track.title)}</h4>
-							<h6 className='text-center h6'>{track.artist.name}</h6>
-						</div>
-						<div className='d-flex'>
-							<audio controls className='gi-audio' src={track.preview}>
-								<PlayCircleFilled />
-							</audio>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
 
 	const handleNextFetch = () => {
 		if (!pagination.find((url) => url === search_result.next)) {
@@ -63,6 +33,19 @@ const ResultPage = () => {
 	const changeListOrder = () => {
 		setToggleList((prev) => !prev);
 	};
+
+	const class_names = {
+		grid: {
+			col: 'col-lg-3',
+			layout: 'gi-grid',
+		},
+		list: {
+			col: 'col-lg-12',
+			layout: 'gi-list',
+		},
+	};
+
+	// console.log(toggleList ? class_names.grid : class_names.list);
 
 	return (
 		<div className='container mt-5 py-5' id='top'>
@@ -78,7 +61,12 @@ const ResultPage = () => {
 					<div className='row'>
 						{search_result.data &&
 							search_result.data.map((track: any) => (
-								<PerResult key={track.id} track={track} />
+								<PerResult
+									key={track.id}
+									//@ts-ignore
+									track={track}
+									class_name={toggleList ? class_names.grid : class_names.list}
+								/>
 							))}
 					</div>
 					<div className='flex_container py-5'>

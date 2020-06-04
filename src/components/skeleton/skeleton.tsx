@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const SkeletonComp = () => {
 	const theme = useSelector((state: any) => state.theme);
-	console.log(theme);
 	return (
 		<div className='skeletonContainer'>
 			<SkeletonTheme
