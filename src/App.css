@@ -252,7 +252,12 @@ h6.h6 {
 	font-weight: bold;
 }
 
-@media screen and (max-width: 780px) {
+.spinner-border {
+	border: 0.25em solid var(--titleColor);
+	border-right-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
 	.gi-audio {
 		width: 100%;
 	}
@@ -294,6 +299,9 @@ h6.h6 {
 		width: 90%;
 		height: auto;
 		position: static;
+	}
+	#svgNote {
+		display: none;
 	}
 
 	.root {

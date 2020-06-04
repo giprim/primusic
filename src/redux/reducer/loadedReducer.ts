@@ -1,5 +1,5 @@
 import { IActions } from '../../interfaces';
-import { LOADING, LOADED, MAKE_A_SEARCH, FETCH_NEXT } from '../types';
+import { LOADED, MAKE_A_SEARCH, FETCH_NEXT } from '../types';
 const initialState = false;
 export default (state = initialState, action: IActions) => {
 	switch (action.type) {

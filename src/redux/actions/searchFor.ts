@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
-import { MAKE_A_SEARCH, RESULT_FOUND, LOADED } from '../types';
+import { MAKE_A_SEARCH, RESULT_FOUND } from '../types';
 
 export default (query: string) => {
 	return (dispatch: Dispatch) => {
@@ -22,9 +22,7 @@ export default (query: string) => {
 					type: MAKE_A_SEARCH,
 					payload: res.data,
 					query,
-					loaded: true,
 				});
-				dispatch({ type: LOADED });
 			})
 			.catch((err) =>
 				dispatch({

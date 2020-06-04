@@ -1,32 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { truncateText } from '../Functionalities/functionalities';
 import fetchNext from '../redux/actions/fetchNext';
+import { LOADING } from '../redux/types';
 import {
 	PlayCircleFilled,
 	UnorderedListOutlined,
 	AppstoreOutlined,
 	ArrowUpOutlined,
 } from '@ant-design/icons';
-import { LOADING } from '../redux/types';
 
 const pages: string[] = [];
 
 const ResultPage = () => {
 	const search_result = useSelector((state: any) => state.search);
-	// const [loaded, setLoaded] = useState(false);
-	// const loaded = useSelector((state: any) => state.loaded);
 	const dispatch = useDispatch();
 	const [toggleList, setToggleList] = useState(true);
 	const [pagination, setPagination] = useState(pages);
 	const [tracks, setTracks] = useState(25);
 
-	// useEffect(() => {
-	// 	setLoaded(search_result.loaded);
-	// }, []);
-	// console.log(loaded);
-	let loaded = search_result.loaded;
-	console.log(search_result.loaded);
+	let { loaded } = search_result;
+	console.log(loaded);
 
 	const PerResult = (tracks: any) => {
 		const { track } = tracks;
@@ -60,6 +54,7 @@ const ResultPage = () => {
 		if (!pagination.find((url) => url === search_result.next)) {
 			setPagination([...pagination, search_result.next]);
 		}
+		dispatch({ type: LOADING });
 		dispatch(fetchNext(search_result.next));
 		setTracks((prev) => prev + search_result.data.length);
 	};
@@ -89,6 +84,7 @@ const ResultPage = () => {
 						<button
 							className={`btn_ ${search_result.prev ? 'show_' : 'hide_'}`}
 							onClick={() => {
+								dispatch({ type: LOADING });
 								dispatch(fetchNext(search_result.prev));
 								setTracks((prev) => prev - search_result.data.lenght);
 							}}>

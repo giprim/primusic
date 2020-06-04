@@ -1,4 +1,4 @@
-import { MAKE_A_SEARCH, FETCH_NEXT } from '../types';
+import { MAKE_A_SEARCH, FETCH_NEXT, LOADING } from '../types';
 import { IArtist, IActions } from '../../interfaces';
 
 const initialState: IArtist = {
@@ -19,7 +19,7 @@ export default (state = initialState, action: IActions) => {
 				next: action.payload.next,
 				total: action.payload.total,
 				query: action.query,
-				loaded: action.loaded,
+				loaded: true,
 			};
 		case FETCH_NEXT:
 			return {
@@ -28,9 +28,10 @@ export default (state = initialState, action: IActions) => {
 				next: action.payload.next,
 				prev: action.payload.prev,
 				total: action.payload.total,
-				loaded: action.loaded,
-				// query: action.query
+				loaded: true,
 			};
+		case LOADING:
+			return { ...state, loaded: false };
 		default:
 			return state;
 	}

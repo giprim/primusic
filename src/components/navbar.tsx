@@ -36,30 +36,14 @@ const Navbar: React.FC = () => {
 				</Link>
 
 				<button
-					className='navbar-toggler '
-					type='button'
-					data-toggle='collapse'
-					data-target='#collapsibleNavbar'>
-					<MenuOutlined className='icon' />
+					className={'float-right'}
+					onClick={themeToggler}
+					style={{ background: 'transparent', border: 'none' }}>
+					<ThemeBtn />
 				</button>
 				{location.pathname !== '/' && (
 					<Searchbar css={{ padding: '5px 25px' }} />
 				)}
-				<div className='collapse navbar-collapse' id='collapsibleNavbar'>
-					<ul className='navbar-nav ml-auto'>
-						<button
-							onClick={themeToggler}
-							style={{ background: 'transparent', border: 'none' }}>
-							<ThemeBtn />
-						</button>
-						{/* <NavLink to='/' className='nav-item nav-link darkLink'>
-							Blog
-						</NavLink>
-						<NavLink to='/' className='nav-item nav-link darkLink'>
-							About
-						</NavLink> */}
-					</ul>
-				</div>
 			</div>
 		</nav>
 	);
