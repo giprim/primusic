@@ -23,10 +23,10 @@ const Home: React.FC<RouteComponentProps> = ({ history }) => {
 							<div className='line'></div>
 							<section className='py-2'>
 								<p className='txt'>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-									ab atque vel assumenda, quisquam cupiditate laborum adipisci
-									voluptatum dignissimos hic voluptas saepe eveniet officia
-									harum animi neque perferendis tempora numquam!
+									Welcome to primusic - here you can search for music and have a
+									preview. Just type in your search query, be it a song title,
+									artist name or album and get your search result in seconds.
+									Have fun!
 								</p>
 							</section>
 						</div>
