@@ -45,8 +45,6 @@ const ResultPage = () => {
 		},
 	};
 
-	// console.log(toggleList ? class_names.grid : class_names.list);
-
 	return (
 		<div className='container mt-5 py-5' id='top'>
 			<div className='py-4'>

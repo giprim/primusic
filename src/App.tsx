@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import 'jquery/dist/jquery.slim';
 import 'bootstrap/dist/js/bootstrap';
-import 'animate.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
